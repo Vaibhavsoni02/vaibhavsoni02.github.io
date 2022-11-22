@@ -357,6 +357,7 @@ img{
     padding: 1rem;
     border-radius: .5rem;
     font-weight: var(--font-medium);
+    border: 0;
 }
 
 .button:hover{
@@ -1212,4 +1213,10 @@ img{
     .contact__inputs{
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+
+
+button{
+    border: 0 !important;
 }
