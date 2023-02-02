@@ -1102,5 +1102,85 @@
 
         <!--==================== MAIN JS ====================-->
         <script src="assets/js/main.js"></script>
+
+<!--==            -->
+<div class="GoogleActiveViewInnerContainer" style="left:0px;top:0px;width:100%;height:100%;position:fixed;pointer-events:none;z-index:-9999;"></div>
+<div style="display:inline" class="GoogleActiveViewElement" data-google-av-cxn="https://pagead2.googlesyndication.com/pcs/activeview?xai=AKAOjsvckJfhlGYqSC3GjxALvtr9-QjiZraMSc85tkXlmVBsSDSGl2BNhjhI0843eCLE5v1gKE2rxML02qC5czuNZ_2ytWXhTD34_nzzJaYkB6ipm8YjZ1h4&amp;sig=Cg0ArKJSzKCdokTsCdDsEAE" data-google-av-adk="2871409418" data-google-av-metadata="la=0&amp;xdi=0&amp;" data-google-av-ufs-integrator-metadata="" data-google-av-override="-1" data-google-av-dm="2" data-google-av-immediate="" data-google-av-aid="0" data-google-av-naid="1" data-google-av-slift="" data-google-av-cpmav="" data-google-av-btr="https://securepubads.g.doubleclick.net/pcs/view?xai=AKAOjsuY_i8rKd-FjRenIYDOL6jfe2cqa-Y61wQ0VcGlmCw-y3-nL0TYfIOOFKalWDYIMxm2ftzYAXEKyGePYBJKWiIGnx_HdvLfC6yL7MmRRy1TdLv-UdQWMc16QKcEhNwh7cM6_VrY2-AKTgtaaFAWmFw7xFV1utNm8mNHCfUDfPzWtFkUGG4d7aHXBf-z0AslOlE49PFI2Et59SyAeDtmGxcZa72-UIn8L3H2jE6q2v0xGOKn5JFdv16l8sLBPP4uvp8iy3rhJEw0sj9B-JAnDfGvfeJMl-b7Wg9SZcTVcLDSgwN3QrU1279heHWg6GqqpQMXW4zB1Wh6qY3gDWO15AmoiJgR&amp;sai=AMfl-YQXO0ysOEmU87YBD4bwWhqIT54HTOYZfdRywc2qy6Q6pFtayWAPqJ7zMHig80J60uT9u1YUBDLD4ivWZNHjhNenex2Xx2RamDtoj3dePhWgaeW2tFgQiw-ftj1UsQ&amp;sig=Cg0ArKJSzJl4ac6JcytwEAE&amp;uach_m=[UACH]&amp;urlfix=1&amp;adurl=" data-google-av-itpl="19" data-google-av-rs="4" data-google-av-flags="[&quot;x%278440'9efotm(&amp;753374%2bejvf/%27844>'9wuvb$&amp;56533>!=|vqc)!273794&amp;<qqvb/%<1735020!=nehu`/!364=5051!9abk{a($160210:3&amp;<cbotf+*0150034:%2bejvf/%72;17613!=efdwa*'76463;21$?ebkpb$&amp;0366717>*>bgipf+!3=712363%9aihwc)!7202<217'9efotm(&amp;20061;48&amp;>`dopb/%<1707200!=8(&amp;2005575?&amp;>`dopb/%<170642?!=|vqc)!7201;=50'9wuvb$&amp;03641654*>bgipf+!3=731103%9aihwc)!7200?073'9efotm(&amp;2004?51;&amp;>`dopb/%<17>474>!=nehu`/!36406412!9abk{ay&quot;]" data-creative-load-listener="">
+
+  <div id="cubewrapid" style="display: block;"> <style type="text/css">
+    body{padding:0; margin:0}
+    .cube-wrap {width:100px;height: 100px;perspective: 2000px;-webkit-perspective: 2000px;perspective-origin: 2000px;-webkit-perspective-origin: 50% -500px;position: relative;margin: 0 auto;}
+    #cubewrapid{bottom: 70px;right: 150px;z-index: 9999; display: none;}
+    .single-box {background-size: cover;display: block;position: absolute;width: 100px;height: 100px;-webkit-transform: rotateY(45deg) translateZ(-200px) rotateX(15deg);transform: rotateY(45deg) translateZ(-200px) rotateX(15deg);-webkit-transform-origin: 50% 50% 0;border: thin solid #333;transform-origin: 50% 50% 0;}
+    .box:hover{animation-play-state: paused;}
+    .box a{width:100%;height:100%;float: left;}
+    .box {-webkit-transform-style: preserve-3d;-webkit-animation: rotate 30s infinite linear;transform-style: preserve-3d;animation: rotate 30s infinite linear;}
+    .side-front { -webkit-transform: translateZ(50px);transform: translateZ(50px);}
+    .side-back { -webkit-transform: rotateY(180deg) translateZ(50px);transform: rotateY(180deg) translateZ(50px);}
+    .side-top {-webkit-transform: rotateX(90deg) translateZ(50px);transform: rotateX(90deg) translateZ(50px);}
+    .side-bottom { -webkit-transform: rotateX(-90deg) translateZ(50px);transform: rotateX(-90deg) translateZ(50px);}
+    .side-left { -webkit-transform: rotateY(-90deg) translateZ(50px); transform: rotateY(-90deg) translateZ(50px);}
+    .side-right { -webkit-transform: rotateY(90deg) translateZ(50px);transform: rotateY(90deg) translateZ(50px);}
+    @-webkit-keyframes rotate {
+    0% { -webkit-transform: rotateY(0); }
+    100% { -webkit-transform: rotateY(-360deg); }
+    }
+    @keyframes rotate {
+    0% { -webkit-transform: rotateY(0); }
+    100% { -webkit-transform: rotateY(-360deg); }
+    }
+    .cube_close {background: #fff url(https://images.oneindia.com/images/promotional/ad-close-icon.svg) no-repeat 0 0;position: relative;top: 18px;left: 76px;z-index: 1000;width: 24px;height: 24px;text-align: center;color: #fff;display: flex;cursor: pointer;border-radius: 50%;}
+   .hide_side {display: none;}
+    .single_button{display: none;left: 0;background: #000;text-align: center;border-radius: 20px;cursor: pointer;}
+    .single_button img{ margin-top: 3px;display: inline-block;vertical-align: top;}
+    @media  only screen and (max-width: 767px) and (min-width: 0px){
+    #cubewrapid {bottom: 100px;z-index: 999;right: 30px;}
+    .box{position: relative;z-index: 99;}
+    .single-box{z-index: 99;}
+    }
+    @supports (-webkit-touch-callout: none) {
+    #single_button{display: none!important}
+    .cube_close {z-index: 99999;left: 90px;top: 10px;}
+    }
+ </style> <div class="cube-wrap"> <span class="cube_close toggle_side" id="toggle_box"  onclick="overLayoff()"></span> 
+  <div id="another-element" class="box"> 
+  <div style="background-image: url(https://asset-image.s3.ap-south-1.amazonaws.com/black_sky.jpg);" class="single-box side-top" >
+  <a href="https://vaibhavsoni02.github.io/" rel="nofollow"></a></div>                      
+  <div                                                                                           class="single-box side-bottom"> 
+  </div> 
+  <div style="background-image: url(https://asset-image.s3.ap-south-1.amazonaws.com/black_img.jpg);" class="single-box side-front side-front"> 
+  <a class="clickevent" href="https://vaibhavsoni02.github.io/" rel="nofollow" target="_blank"></a> </div> 
+  <div style="background-image: url(https://asset-image.s3.ap-south-1.amazonaws.com/black_img.jpg);" class="single-box side-front side-left">
+  <a class="clickevent" href="https://vaibhavsoni02.github.io/" rel="nofollow" target="_blank"></a> </div> 
+  <div style="background-image: url(https://asset-image.s3.ap-south-1.amazonaws.com/black_img.jpg);" class="single-box side-front side-back"> 
+  <a class="clickevent" href="https://vaibhavsoni02.github.io/" rel="nofollow" target="_blank"></a> </div> 
+  <div style="background-image: url(https://asset-image.s3.ap-south-1.amazonaws.com/black_img.jpg);" class="single-box side-front side-right"> 
+  <a class="clickevent" href="https://vaibhavsoni02.github.io/" rel="nofollow" target="_blank"></a> </div>
+ </div> </div> </div>
+  
+  
+  <script>
+    var cube_live_status = sessionStorage.getItem("cube_live_status");
+    if (cube_live_status == "" || cube_live_status == "undefined" || cube_live_status == null) {
+    document.getElementById("cubewrapid").style.display = "block";
+    }
+    function overLayoff() {
+      document.getElementById("cubewrapid").innerHTML = "";
+      if(window.parent.document.getElementById('div-gpt-ad-1653012388909-0')){
+        window.parent.document.getElementById('div-gpt-ad-1653012388909-0').style.display='none';
+      }sessionStorage.setItem("cube_live_status", 1);
+    }
+    
+    if (cube_live_status == "1") {
+    if(window.parent.document.getElementById('div-gpt-ad-1653012388909-0')){
+        window.parent.document.getElementById('div-gpt-ad-1653012388909-0').style.display='none';
+      }
+    }
+    </script>
+
+
+
+<!--==          ===-->
+
     </body>
 </html>
