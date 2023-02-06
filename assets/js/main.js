@@ -175,7 +175,56 @@ themeButton.addEventListener('click', () => {
 
 function homeclicked() {
     mixpanel.track('Home Clicked', {
-        'Page': "Home Page",
+        'Page': "Home page",
         'Event Action': "clicked",
+        'Section' : "Top nav",
+      });
+}
+
+function aboutclicked() {
+    mixpanel.track('About Clicked', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "Top nav",
+      });
+}
+
+function skillclicked() {
+    mixpanel.track('Skill Clicked', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "Top nav",
+      });
+}
+
+function qualificationsclicked() {
+    mixpanel.track('Qualifications Clicked', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "Top nav",
+      });
+}
+
+function portfolioclicked() {
+    mixpanel.track('Portfolio Clicked', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "Top nav",
+      });
+}
+
+function contactclicked() {
+    mixpanel.track('Contact Clicked', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "Top nav",
+      });
+}
+
+function themeicon() {
+    mixpanel.track('Mode Changed', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "Top nav",
       });
 }
