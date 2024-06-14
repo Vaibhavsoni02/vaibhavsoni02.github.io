@@ -48,9 +48,26 @@
             
             // Enabling the debug mode flag is useful during implementation,
             // but it's recommended you remove it for production
-            mixpanel.init('d6f7392cd6d34de1dbd17e41ba8080d6', {debug: true, ignore_dnt: true} ); 
+            mixpanel.init('d6f7392cd6d34de1dbd17e41ba8080d6', {record_sessions_percent: 100 , debug: true, ignore_dnt: true} ); 
             mixpanel.track('Sign up');
             </script>
+
+            <!-- Customer.io Tracking Code for my site -->
+            <script type="text/javascript">
+              (function() {
+                var t = document.createElement('script'),
+                    s = document.getElementsByTagName('script')[0];
+                t.async = true;
+                t.id    = 'cio-forms-handler';
+                t.setAttribute('data-site-id', '68d00106cfd377347654');
+                t.setAttribute('data-base-url', 'https://customerioforms.com');
+            
+                t.src = 'https://customerioforms.com/assets/forms.js';
+            
+                s.parentNode.insertBefore(t, s);
+              })();
+            </script>
+            <!-- Customer.io Tracking Code for my site -->
         
             <!-- Hotjar Tracking Code for my site -->
             <script>
