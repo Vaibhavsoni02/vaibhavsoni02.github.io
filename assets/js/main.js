@@ -228,3 +228,49 @@ function themeicon() {
         'Section' : "Top nav",
       });
 }
+function contactclickedcta1() {
+    mixpanel.track('Contact Clicked', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "Hero Section",
+      });
+}
+function contactclickedcta2() {
+    mixpanel.track('Contact Clicked', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "Bottom Section",
+      });
+}
+
+function contactclickedcta3() {
+    mixpanel.track('Contact Clicked', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "Form Section",
+      });
+}
+
+function cvdownload() {
+    mixpanel.track('CV Downloaded', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "About Me",
+      });
+}
+
+function themeicon() {
+    mixpanel.track('Mode Changed', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "Top nav",
+      });
+}
+
+function themeicon() {
+    mixpanel.track('Mode Changed', {
+        'Page': "Home page",
+        'Event Action': "clicked",
+        'Section' : "Top nav",
+      });
+}
