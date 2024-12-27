@@ -53,7 +53,17 @@
             
             // Enabling the debug mode flag is useful during implementation,
             // but it's recommended you remove it for production
-            mixpanel.init('d6f7392cd6d34de1dbd17e41ba8080d6', {record_sessions_percent: 100 , debug: true, ignore_dnt: true});
+            mixpanel.init('d6f7392cd6d34de1dbd17e41ba8080d6', {
+		    record_sessions_percent: 100 , 
+		    debug: true, 
+		    ignore_dnt: true,					      
+        	    record_block_selector: "",  //unmasks images and videos
+                    record_mask_text_selector: "",  //unmasks text
+		    autocapture: {
+    				click: true,
+    				pageview: 'url-with-path',
+  				},
+							      });
             
             // Function to generate a unique identifier
             function generateUUID() {
