@@ -1137,70 +1137,70 @@
     <label for="name">Full Name</label>
     <input type="text" id="name" name="name" placeholder="Your Name" required>
   </div>
-
   <div class="form-group">
     <label for="email">Email Address</label>
     <input type="email" id="email" name="email" placeholder="your@email.com" required>
   </div>
-
   <div class="form-group">
     <label for="company">Company</label>
     <input type="text" id="company" name="company" placeholder="Your Company">
   </div>
-
   <div class="form-group">
     <label for="project">Project Type</label>
     <input type="text" id="project" name="project" placeholder="Product Development, Analytics, Data Strategy...">
   </div>
-
   <div class="form-group">
     <label for="message">Project Details</label>
     <textarea id="message" name="message" rows="4" placeholder="Tell me about your product or data needs..." required></textarea>
   </div>
-
-  <!-- Styled submit button -->
-  <input type="submit" value="Send Message" class="submit-btn">
+  <button type="submit" class="submit-btn">Send Message</button>
+  <p id="form-status" style="margin-top:10px; font-weight:bold;"></p>
 </form>
 
 <script>
 document.querySelector('form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const form = this;
-    const submitBtn = document.querySelector('.submit-btn');
-    const originalText = submitBtn.value;
+  e.preventDefault();
+  const form = this;
+  const submitBtn = document.querySelector('.submit-btn');
+  const status = document.getElementById('form-status');
+  const originalText = submitBtn.textContent;
 
-    // Show sending state
-    submitBtn.value = 'Sending...';
-    submitBtn.disabled = true;
-    submitBtn.style.opacity = '0.7';
+  // Sending state
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+  submitBtn.style.opacity = '0.7';
+  status.textContent = '';
 
-    try {
-        const response = await fetch(form.action, {
-            method: form.method,
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-        });
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
 
-        if (response.ok) {
-            submitBtn.value = 'Message Sent!';
-            submitBtn.style.background = 'linear-gradient(45deg, #51cf66, #40c057)';
-            form.reset();
-        } else {
-            submitBtn.value = 'Error! Try Again';
-            submitBtn.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
-        }
-    } catch (error) {
-        submitBtn.value = 'Error! Try Again';
-        submitBtn.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
+    if (response.ok) {
+      submitBtn.textContent = 'Message Sent!';
+      submitBtn.style.background = 'linear-gradient(45deg, #51cf66, #40c057)';
+      status.style.color = '#40c057';
+      status.textContent = '✅ Your message has been sent!';
+      form.reset();
+    } else {
+      throw new Error('Submission failed');
     }
+  } catch (error) {
+    submitBtn.textContent = 'Error! Try Again';
+    submitBtn.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
+    status.style.color = '#ff6b6b';
+    status.textContent = '❌ Oops! Something went wrong.';
+  }
 
-    // Reset button after 2 seconds
-    setTimeout(() => {
-        submitBtn.value = originalText;
-        submitBtn.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-    }, 2000);
+  // Reset button after 2 seconds
+  setTimeout(() => {
+    submitBtn.textContent = originalText;
+    submitBtn.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = '1';
+  }, 2000);
 });
 </script>
 
@@ -1244,13 +1244,14 @@ textarea {
   font-size: 16px;
   cursor: pointer;
   border-radius: 6px;
-  transition: background 0.3s, opacity 0.3s;
+  transition: opacity 0.3s, background 0.3s;
 }
 
 .submit-btn:hover {
   opacity: 0.9;
 }
 </style>
+
 	
                     
                 </div>
