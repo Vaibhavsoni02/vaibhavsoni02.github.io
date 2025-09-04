@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaibhav - Product Manager | Data Services | Optiblack</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1)"/><stop offset="100%" style="stop-color:rgba(255,255,255,0)"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="80" fill="url(%23a)"/><circle cx="900" cy="800" r="120" fill="url(%23a)"/></svg>') no-repeat center;
+            background-size: cover;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .name {
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #fff, #f8f9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .hero .role {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 150px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        /* About Section */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-dark {
+            background: #1a1a1a;
+            color: white;
+            margin: 0;
+            max-width: none;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-dark .section-title {
+            color: white;
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .journey-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .journey-card h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .journey-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .journey-highlight {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .journey-highlight strong {
+            color: #fff;
+        }
+
+        /* Experience Timeline */
+        .experience-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .achievement-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Skills Grid */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .skill-item img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            height: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            position: relative;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .project-company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-metrics {
+            background: #f8f9ff;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .project-metrics h4 {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .metrics-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .metric-item {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #e1e8ff;
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .name {
+                font-size: 3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Vaibhav @ Optiblack</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm</h1>
+            <div class="name">Vaibhav</div>
+            <p class="subtitle">Product Manager | Data Services</p>
+            <p class="role">Helping companies adopt data culture and make data-driven decisions @ Optiblack</p>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">$350M+</div>
+                    <div class="stat-label">Client Impact</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">80+</div>
+                    <div class="stat-label">Businesses</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">19M+</div>
+                    <div class="stat-label">Users Managed</div>
+                </div>
+            </div>
+            <a href="#contact" class="cta-button">Let's Build Together</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-dark">
+        <div class="section">
+            <h2 class="section-title fade-in">My Journey</h2>
+            <div class="about-content">
+                <div class="journey-card fade-in">
+                    <h3>From Engineer to Product Leader</h3>
+                    <p>Started as a Mechanical Engineer, transitioned through support roles at <strong>Yahoo & Amazon</strong>, and discovered my passion for solving problems with data, design, and engineering.</p>
+                    
+                    <div class="journey-highlight">
+                        <strong>Career Pivot:</strong> After failing 30+ government exams in Banking, Railways, Defense, and UPSC, I found my true calling in product and data.
+                    </div>
+                    
+                    <p>Now I help companies transform their relationship with data, building products that have the potential to improve millions of lives.</p>
+                </div>
+                
+                <div class="journey-card fade-in">
+                    <h3>Current Mission at Optiblack</h3>
+                    <p>As Product Manager overseeing Data Services, I focus on:</p>
+                    <div class="journey-highlight">
+                        ✓ Helping companies adopt data-driven culture<br>
+                        ✓ Building actionable dashboards for cross-functional teams<br>
+                        ✓ Driving insights that influence strategic decisions<br>
+                        ✓ Leading end-to-end project deployments<br>
+                        ✓ Creating impactful products from idea to scale
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2 class="section-title fade-in">Professional Experience</h2>
+        <div class="experience-timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Product Manager - Data Services</h3>
+                    <div class="timeline-company">Optiblack (Current)</div>
+                    <p>Lead data transformation initiatives for 80+ businesses globally. Create actionable dashboards, drive data-driven decision making, and work across Product, Technology, Marketing functions to deploy end-to-end solutions.</p>
+                    <div class="achievement-tags">
+                        <span class="achievement-tag">$350M+ Impact</span>
+                        <span class="achievement-tag">19M+ Users</span>
+                        <span class="achievement-tag">Cross-functional Leadership</span>
+                        <span class="achievement-tag">Data Culture Adoption</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Associate Product Manager</h3>
+                    <div class="timeline-company">LearnApp</div>
+                    <p>Built three products from idea to 2K users: LearnApp Programmes, Zero1 & Varsity Live. Led cross-functional teams including Content, Production, Product, Technology, and Marketing.</p>
+                    <div class="achievement-tags">
+                        <span class="achievement-tag">0-2K Users</span>
+                        <span class="achievement-tag">3 Products Launched</span>
+                        <span class="achievement-tag">GTM Strategy</span>
+                        <span class="achievement-tag">Marketing Automation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Product Associate</h3>
+                    <div class="timeline-company">Testbook (EdTech)</div>
+                    <p>Analyzed content performance using advanced analytics tools, managed product lifecycle from problem identification to solution implementation, and defined key performance metrics.</p>
+                    <div class="achievement-tags">
+                        <span class="achievement-tag">Content Analytics</span>
+                        <span class="achievement-tag">Product Lifecycle</span>
+                        <span class="achievement-tag">Performance Metrics</span>
+                        <span class="achievement-tag">User Research</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Virtual Customer Service Associate</h3>
+                    <div class="timeline-company">Amazon</div>
+                    <p>Handled customer queries, logistics coordination, and product support. Built foundational understanding of customer needs and operational excellence.</p>
+                    <div class="achievement-tags">
+                        <span class="achievement-tag">Customer Focus</span>
+                        <span class="achievement-tag">Logistics</span>
+                        <span class="achievement-tag">Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-dark">
+        <div class="section">
+            <h2 class="section-title fade-in">Technical Stack</h2>
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3>Analytics & BI</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item">
+                            <div class="skill-name">Mixpanel</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Power BI</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Google Analytics</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">UXCam</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Hotjar</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Redash</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Development & Data</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item">
+                            <div class="skill-name">Python</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">JavaScript</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">HTML/CSS</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Streamlit</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">SQL</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Excel/Sheets</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>CRM & Marketing</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item">
+                            <div class="skill-name">HubSpot</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Salesforce</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">LeadSquared</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Intercom</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">MoEngage</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Facebook Pixel</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Product & No-Code</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item">
+                            <div class="skill-name">Notion</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Zapier</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Webflow</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Bubble</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Framer</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Confluence</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title fade-in">Key Projects & Impact</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-header">🚀</div>
+                <div class="project-content">
+                    <h3>LearnApp Product Suite</h3>
+                    <div class="project-company">LearnApp</div>
+                    <p>Led the development of three products from concept to 2K users: LearnApp Programmes, Zero1 & Varsity Live. Managed cross-functional teams and implemented comprehensive analytics strategy.</p>
+                    <div class="project-metrics">
+                        <h4>Key Achievements:</h4>
+                        <div class="metrics-list">
+                            <span class="metric-item">0 → 2K Users</span>
+                            <span class="metric-item">3 Products Launched</span>
+                            <span class="metric-item">Cross-functional Leadership</span>
+                            <span class="metric-item">Full Analytics Implementation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">📊</div>
+                <div class="project-content">
+                    <h3>Enterprise Data Transformation</h3>
+                    <div class="project-company">Optiblack Client Portfolio</div>
+                    <p>Overseeing data services for 80+ businesses globally, implementing comprehensive analytics strategies that drive $350M+ in client impact through data-driven decision making.</p>
+                    <div class="project-metrics">
+                        <h4>Impact Metrics:</h4>
+                        <div class="metrics-list">
+                            <span class="metric-item">$350M+ Impact</span>
+                            <span class="metric-item">80+ Businesses</span>
+                            <span class="metric-item">19M+ Users</span>
+                            <span class="metric-item">Global Scale</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">🎯</div>
+                <div class="project-content">
+                    <h3>Marketing Automation & CRM Integration</h3>
+                    <div class="project-company">Multi-Client Implementation</div>
+                    <p>Implemented advanced marketing automation workflows using HubSpot, LeadSquared, and MoEngage. Created sophisticated funnel tracking and customer journey analytics.</p>
+                    <div class="project-metrics">
+                        <h4>Technologies Used:</h4>
+                        <div class="metrics-list">
+                            <span class="metric-item">HubSpot</span>
+                            <span class="metric-item">MoEngage</span>
+                            <span class="metric-item">LeadSquared</span>
+                            <span class="metric-item">Zapier Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">⚡</div>
+                <div class="project-content">
+                    <h3>Real-time Analytics Dashboards</h3>
+                    <div class="project-company">Optiblack Data Services</div>
+                    <p>Built actionable dashboards using Mixpanel, Power BI, and custom Python solutions that enable teams across companies to make data-driven decisions in real-time.</p>
+                    <div class="project-metrics">
+                        <h4>Dashboard Features:</h4>
+                        <div class="metrics-list">
+                            <span class="metric-item">Real-time Insights</span>
+                            <span class="metric-item">Cross-team Access</span>
+                            <span class="metric-item">Actionable Metrics</span>
+                            <span class="metric-item">Custom Python Scripts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-dark">
+        <div class="section">
+            <h2 class="section-title fade-in">Let's Connect</h2>
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <h3>Ready to Transform Your Data Strategy?</h3>
+                    <p>Whether you're looking to build products from scratch, implement comprehensive analytics, or adopt a data-driven culture, I'd love to discuss how we can work together.</p>
+                    <ul class="contact-details">
+                        <li>
+                            <div class="contact-icon">🌐</div>
+                            <span>Portfolio: vaibhav.pocpe.com</span>
+                        </li>
+                        <li>
+                            <div class="contact-icon">🏢</div>
+                            <span>Company: optiblack.com</span>
+                        </li>
+                        <li>
+                            <div class="contact-icon">💼</div>
+                            <span>Open to product & data consulting</span>
+                        </li>
+                        <li>
+                            <div class="contact-icon">⏰</div>
+                            <span>Available globally via Optiblack</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form fade-in">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Your Company">
+                        </div>
+                        <div class="form-group">
+                            <label for="project">Project Type</label>
+                            <input type="text" id="project" name="project" placeholder="Product Development, Analytics, Data Strategy...">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell me about your product or data needs..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://vaibhav.pocpe.com" target="_blank">Portfolio</a>
+            <a href="https://optiblack.com" target="_blank">Optiblack</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <p>&copy; 2025 Vaibhav - Product Manager @ Optiblack. Transforming businesses through data-driven products.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.style.opacity = '0.7';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.textContent = 'Message Sent!';
+                submitBtn.style.background = 'linear-gradient(45deg, #51cf66, #40c057)';
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
+                    submitBtn.style.opacity = '1';
+                    this.reset();
+                }, 2000);
+            }, 1000);
+        });
+
+        // Add interactive hover effects
+        document.querySelectorAll('.project-card, .skill-category').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Timeline animation
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+</html>
