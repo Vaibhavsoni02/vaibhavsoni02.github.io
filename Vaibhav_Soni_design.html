@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Bundled Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vaibhav Soni — Product Manager | Data Services | Optiblack</title>
+  <meta name="description" content="Vaibhav Soni is a Product Manager at Optiblack, helping companies transform their relationship with data through product strategy, analytics, and MarTech solutions.">
+  <link rel="canonical" href="https://vaibhav.pocpe.com/">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #F9F7F3; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
@@ -111,23 +114,39 @@ document.addEventListener('DOMContentLoaded', async function() {
     setStatus('Rendering...');
     for (const uuid of uuids) template = template.split(uuid).join(blobUrls[uuid]);
 
+    // SEO: inject meta into bundled template <head> before DOM swap
+    const seoHead = [
+      '<title>Vaibhav Soni — Product Manager | Data Services | Optiblack</title>',
+      '<meta name="description" content="Vaibhav Soni is a Product Manager at Optiblack, helping companies transform their relationship with data through product strategy, analytics, and MarTech solutions.">',
+      '<meta name="robots" content="index, follow, max-image-preview:large">',
+      '<meta name="author" content="Vaibhav Soni">',
+      '<meta name="theme-color" content="#824DEB">',
+      '<link rel="canonical" href="https://vaibhav.pocpe.com/">',
+      '<meta property="og:type" content="website">',
+      '<meta property="og:url" content="https://vaibhav.pocpe.com/">',
+      '<meta property="og:title" content="Vaibhav Soni — Product Manager | Data Services | Optiblack">',
+      '<meta property="og:description" content="Vaibhav Soni is a Product Manager at Optiblack, helping companies transform their relationship with data through product strategy, analytics, and MarTech solutions.">',
+      '<meta property="og:site_name" content="Vaibhav Soni — Optiblack">',
+      '<meta name="twitter:card" content="summary_large_image">',
+      '<meta name="twitter:title" content="Vaibhav Soni — Product Manager | Data Services | Optiblack">',
+      '<meta name="twitter:description" content="Vaibhav Soni is a Product Manager at Optiblack, helping companies transform their relationship with data through product strategy, analytics, and MarTech solutions.">',
+      '<meta name="twitter:creator" content="@vaibhavsoni02">',
+      '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Vaibhav Soni","url":"https://vaibhav.pocpe.com/","jobTitle":"Product Manager","worksFor":{"@type":"Organization","name":"Optiblack","url":"https://optiblack.com"},"email":"vaibhavgear7@gmail.com","sameAs":["https://www.linkedin.com/in/vaibhavsoni02","https://twitter.com/vaibhavsoni02"]}<' + '/script>'
+    ].join('');
+    template = template.replace(/<html([^>]*)>/i, '<html lang="en"$1>');
+
     // Strip integrity + crossorigin — blob URLs from a file:// document inherit
     // a null origin, so crossorigin forces a CORS fetch that SRI then rejects.
-    // The manifest bytes are ours; SRI protects against CDN compromise, not this.
     template = template.replace(/\s+integrity="[^"]*"/gi, '').replace(/\s+crossorigin="[^"]*"/gi, '');
 
     const resourceScript = '<script>window.__resources = ' +
       JSON.stringify(resourceMap).split('</' + 'script>').join('<\\/' + 'script>') +
       ';</' + 'script>';
-    // Inject after <head> so the DOCTYPE stays first; prepending the script
-    // would push the parser into quirks mode. DOMParser always emits a <head>
-    // (synthesizing one if the source HTML omitted it) but may carry
-    // attributes through, so match the full opening tag. slice() rather than
-    // replace() keeps us clear of $-pattern substitution in resourceScript.
+
     const headOpen = template.match(/<head[^>]*>/i);
     if (headOpen) {
-      const i = headOpen.index + headOpen[0].length;
-      template = template.slice(0, i) + resourceScript + template.slice(i);
+      const hi = headOpen.index + headOpen[0].length;
+      template = template.slice(0, hi) + seoHead + resourceScript + template.slice(hi);
     }
 
     // Parse the template and swap the root element. Scripts inserted via
@@ -159,6 +178,21 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
       window.Babel.transformScriptTags();
     }
+
+    // Load unified analytics, SEO, and form handlers after bundle render
+    function loadPostBundleScript(src) {
+      return new Promise(function(resolve) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = s.onerror = resolve;
+        document.head.appendChild(s);
+      });
+    }
+    await loadPostBundleScript('js/seo-head.js');
+    await loadPostBundleScript('js/site-analytics.js');
+    if (loading) loading.remove();
+    var thumb = document.getElementById('__bundler_thumbnail');
+    if (thumb) thumb.remove();
   } catch (err) {
     setStatus('Error unpacking: ' + err.message);
     console.error('Bundle unpack error:', err);
